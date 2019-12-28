@@ -1,0 +1,23 @@
+                <h1>Shop Comp</h1>
+                    <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>EAN</th>
+                        <th>Type</th>
+                        <th>Weight</th>
+                        <th>Color</th>
+                        <th>Active</th>
+                    </tr>
+                    <tr>
+                        <td>Milk</td>
+                        <td>3256451</td>
+                        <td>Food</td>
+                        <td>White</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Eve</td>
+                        <td>Jackson</td>
+                        <td>94</td>
+                    </tr>
+                    </table>
