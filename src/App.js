@@ -56,10 +56,11 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Home}  />
               <Route exact path="/about" component={About} />
+              <Route exact  path="/products/create/" component={ProductsCreate} />} />
               <Route exact  path="/products" component={Products} />
-              <Route exact  path="/products/`${index + 1}`" component={ProductsPreview} />
-              <Route exact  path="/products/`${index + 1}`/edit/" component={ProductsEdit} />
-              <Route exact  path="/products/create/" component={ProductsCreate} />
+              <Route exact  path="/products/:id" render={(props) => <ProductsPreview {...props} />} />
+              <Route exact  path="/products/:id/edit/" render={(props) => <ProductsEdit {...props}/>} />
+
             </Switch>
           </div>
         </Router>

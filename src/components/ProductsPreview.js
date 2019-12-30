@@ -11,31 +11,16 @@ class ProductsPreview extends React.Component {
     }
 };
 
-products = JSON.parse(localStorage.getItem('products'));
-
-
-// console.log(products);
-  // const {
-  //   params: { productId }
-  // } = match;
-
-  //let product = products.find(product => product.id === productId);
-
-  commponentDidMount(products, productId) {
-    let product = products.filter(product => product.id === productId);
-    if(product){
-      console.log(product);
-      return product;
-    } else {
-      return "no product";
-    }
-
+  commponentDidMount(products) {
+    
   }
 
   render() {
   return (
     <div>
-      <h1>PRODUCT NAME</h1>
+      <h1>PRODUCT PREVIEW</h1>
+        <p>Product ID is: {this.props.match.params.id}</p>
+        
     </div>
   );
   }

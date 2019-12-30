@@ -23,7 +23,7 @@ class ProductsEdit extends React.Component {
                             Name
                     </Form.Label>
                         <Col sm={10}>
-                            <Form.Control type="text" placeholder="Name" />
+                            <Form.Control type="text" placeholder="Name" value="{this.products.name}"/>
                         </Col>
                     </Form.Group>
 
