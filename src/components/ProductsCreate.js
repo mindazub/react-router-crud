@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import Products from "./Products";
 
 class ProductsCreate extends React.Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class ProductsCreate extends React.Component {
       color: "",
       quantity: "",
       price: "",
-      active: ""
+      active: "",
+      
     };
   }
 
@@ -56,9 +58,9 @@ class ProductsCreate extends React.Component {
     this.setState({ price: e.target.value });
   }
 
-    onChangeProductActive(e) {
-      this.setState({ active: e.target.value() });
-    }
+  onChangeProductActive(e) {
+    //this.setState({ active: e.target.value() });
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -72,18 +74,30 @@ class ProductsCreate extends React.Component {
     console.log(`Price: ${this.state.price}`);
     console.log(`Active: ${this.state.active}`);
 
-    let product = {
-        name: this.state.name,
-        ean: this.state.ean,
-        type: this.state.type,
-        weight: this.state.weight,
-        color: this.state.color,
-        quantity: this.state.quantity,
-        price: this.state.price,
-        active: 1
-      };
+    let products = JSON.parse(localStorage.getItem('products'))
 
-    localStorage.setItem('products', JSON.stringify(product));
+    let product = {
+      name: this.state.name,
+      ean: this.state.ean,
+      type: this.state.type,
+      weight: this.state.weight,
+      color: this.state.color,
+      quantity: this.state.quantity,
+      price: this.state.price,
+      active: this.state.active
+    };
+
+    let productStringified = localStorage.setItem('product', JSON.stringify(product));
+    let productsPlus = products.push(productStringified);
+
+    let existingProducts = JSON.parse(localStorage.getItem("products"));
+
+    if(existingProducts == null) existingProducts = []
+    // localStorage.setItem('product', JSON.stringify(product));
+    existingProducts.push(product);
+    localStorage.setItem('products', JSON.stringify(existingProducts));
+    console.log('Products what?: ' + products);
+
   }
 
   render() {
@@ -186,7 +200,7 @@ class ProductsCreate extends React.Component {
               Price
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type="integer" placeholder="Price" />
+              <Form.Control type="integer" value={this.state.active} onChange={this.onChangeProductActive} placeholder="Price" />
             </Col>
           </Form.Group>
 
