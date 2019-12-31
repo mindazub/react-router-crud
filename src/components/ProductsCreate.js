@@ -13,7 +13,7 @@ class ProductsCreate extends React.Component {
     this.onChangeProductColor = this.onChangeProductColor.bind(this);
     this.onChangeProductQuantity = this.onChangeProductQuantity.bind(this);
     this.onChangeProductPrice = this.onChangeProductPrice.bind(this);
-    //this.onChangeProductActive = this.onChangeProductActive.bind(this);
+    this.onChangeProductActive = this.onChangeProductActive.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -36,9 +36,9 @@ class ProductsCreate extends React.Component {
     this.setState({ ean: e.target.value });
   }
 
-    onChangeProductType(e) {
-      this.setState({ type: e.target.value });
-    }
+  onChangeProductType(e) {
+    this.setState({ type: e.target.value });
+  }
 
   onChangeProductWeight(e) {
     this.setState({ weight: e.target.value });
@@ -47,7 +47,7 @@ class ProductsCreate extends React.Component {
   onChangeProductColor(e) {
     this.setState({ color: e.target.value });
   }
-  
+
   onChangeProductQuantity(e) {
     this.setState({ quantity: e.target.value });
   }
@@ -56,9 +56,9 @@ class ProductsCreate extends React.Component {
     this.setState({ price: e.target.value });
   }
 
-  //   onChangeProductActive(e) {
-  //     this.setState({ active: e.target.value() });
-  //   }
+    onChangeProductActive(e) {
+      this.setState({ active: e.target.value() });
+    }
 
   onSubmit(e) {
     e.preventDefault();
@@ -70,6 +70,20 @@ class ProductsCreate extends React.Component {
     console.log(`Color: ${this.state.color}`);
     console.log(`Quantity: ${this.state.quantity}`);
     console.log(`Price: ${this.state.price}`);
+    console.log(`Active: ${this.state.active}`);
+
+    let product = {
+        name: this.state.name,
+        ean: this.state.ean,
+        type: this.state.type,
+        weight: this.state.weight,
+        color: this.state.color,
+        quantity: this.state.quantity,
+        price: this.state.price,
+        active: 1
+      };
+
+    localStorage.setItem('products', JSON.stringify(product));
   }
 
   render() {
