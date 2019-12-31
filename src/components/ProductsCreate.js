@@ -82,6 +82,8 @@ class ProductsCreate extends React.Component {
     if (existingProducts == null) existingProducts = [];
     existingProducts.push(product);
     localStorage.setItem("products", JSON.stringify(existingProducts));
+
+    this.props.history.push('/products');
   }
 
   render() {
