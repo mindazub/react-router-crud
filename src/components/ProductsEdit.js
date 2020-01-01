@@ -72,9 +72,11 @@ class ProductsEdit extends React.Component {
     // Find product by id
     // Update it
 
-    // let prodId = this.match.params.id;
+    // let prodId = JSON.parse(this.match.params.id);
 
+    // let product = products.find(product => product.id === prodId);
 
+    // console.log('Product is: ' + product.name);
 
     this.props.history.push('/products')
   }

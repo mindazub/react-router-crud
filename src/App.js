@@ -9,7 +9,7 @@ import ProductsEdit from './components/ProductsEdit';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const products = [{
+let products = [{
   name: 'iPad',
   ean: 5,
   type: 'tablet',
