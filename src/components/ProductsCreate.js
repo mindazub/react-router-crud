@@ -88,7 +88,7 @@ class ProductsCreate extends React.Component {
 
   render() {
     return (
-      <div className="col-md-10">
+      <div className="col-md-12 app-wrapper">
         <h1>Products Create</h1>
 
         <Form onSubmit={this.onSubmit}>

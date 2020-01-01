@@ -22,3 +22,8 @@ nav {
 .front-page-full {
   height: 100vh;
 }
+
+.app-wrapper {
+  background-color: #eee;
+  height: 100vh; 
+}

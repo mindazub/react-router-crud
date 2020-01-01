@@ -30,7 +30,7 @@ class ProductsPreview extends React.Component {
 
 
     return (
-      <div>
+      <div className="app-wrapper">
         <h1>PRODUCT PREVIEW</h1>
         <p>Product ID is: {this.props.match.params.id}</p>
 
@@ -38,11 +38,19 @@ class ProductsPreview extends React.Component {
 
         <p></p>
 
-        <p>
-          In preview section we need a tab system which will have 3 tabs:
-          Product details, Price History, Quantity history.
-        </p>
-        <p></p>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Product details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Price history</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Quantity history</a>
+          </li>
+        </ul>
+
+
       </div>
     );
   }

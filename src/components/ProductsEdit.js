@@ -19,8 +19,7 @@ class ProductsEdit extends React.Component {
       products: JSON.parse(localStorage.getItem("products"))
     }
 
-    let prodId = this.match.params.id;
-
+    // this.state.name = this.products.name;
 
   }
 
@@ -69,6 +68,12 @@ class ProductsEdit extends React.Component {
       price: this.state.price,
       active: this.state.active
     };
+    // Updating a product 
+    // Find product by id
+    // Update it
+
+    // let prodId = this.match.params.id;
+
 
 
     this.props.history.push('/products')
@@ -77,7 +82,7 @@ class ProductsEdit extends React.Component {
 
   render() {
     return (
-      <div className="col-md-10">
+      <div className="col-md-12 app-wrapper">
         <h1>Products Edit</h1>
 
         <Form onSubmit={this.onSubmit}>

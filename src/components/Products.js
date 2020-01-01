@@ -2,6 +2,7 @@
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import React from "react";
 import { Link } from "react-router-dom";
+import '../App.css';
 
 class Products extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Products extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="app-wrapper">
         <Link to="/products/create">
           <button type="button" class="btn btn-success">
             Add Product
