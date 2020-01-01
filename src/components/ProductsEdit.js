@@ -16,15 +16,12 @@ class ProductsEdit extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      name: "",
-      ean: "",
-      type: "",
-      weight: "",
-      color: "",
-      quantity: "",
-      price: "",
-      active: ""
-    };
+      products: JSON.parse(localStorage.getItem("products"))
+    }
+
+    let prodId = this.match.params.id;
+
+
   }
 
   onChangeProductName(e) {
@@ -59,9 +56,9 @@ class ProductsEdit extends React.Component {
     //this.setState({ active: e.target.value() });
   }
 
-  onSubmit(e){
+  onSubmit(e) {
     e.preventDefault();
-    
+
     let product = {
       name: this.state.name,
       ean: this.state.ean,
@@ -78,7 +75,7 @@ class ProductsEdit extends React.Component {
   }
 
 
-    render() {
+  render() {
     return (
       <div className="col-md-10">
         <h1>Products Edit</h1>

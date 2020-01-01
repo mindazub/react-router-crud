@@ -2,7 +2,11 @@ import React from 'react';
 import '../App.css';
 function Home() {
     return (
-      <h1>Home Comp</h1>
+      
+      <div class="jumbotron front-page-full">
+        <h1>Home Comp</h1>
+        Please visit <a href="http://localhost:3000/products">http://localhost:3000/products</a> to see products app
+      </div>
     );
   }
   
