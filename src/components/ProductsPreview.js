@@ -7,17 +7,18 @@ class ProductsPreview extends React.Component {
 
     this.state = {
       products: JSON.parse(localStorage.getItem("products"))
+
     };
   }
 
-  commponentDidMount() {
-    // let productFound = this.state.products.filter(product => product.id === this.props.match.params.id)[0];
-    // console.log('Product is: ' + productFound.name);
+  commponentWillMount() {
+
     let productFound = this.state.products.filter(
       product => (product.id = this.props.match.params.id)
     )[0];
 
-    console.log("Masyvas? - " + this.state.products);
+    this.state.productFound = productFound;
+
   }
 
   render() {
