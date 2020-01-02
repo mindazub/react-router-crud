@@ -2,7 +2,7 @@
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import React from "react";
 import { Link } from "react-router-dom";
-import '../App.css';
+import "../App.css";
 
 class Products extends React.Component {
   constructor(props) {
@@ -28,7 +28,9 @@ class Products extends React.Component {
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">EAN</th>
-              <th scope="col">Color</th>
+              <th scope="col">Type</th>
+              <th scope="col">Color</th>              
+              <th scope="col">Quantity</th>
               <th scope="col">Price</th>
               <th scope="col">Active</th>
               <th scope="col">Actions</th>
@@ -41,8 +43,10 @@ class Products extends React.Component {
                   {index + 1}
                 </th>
                 <td>{product.name}</td>
-                <td>{product.ean}</td>
+                <td>{product.ean}</td> 
+                <td>{product.type}</td>
                 <td>{product.color}</td>
+                <td>{product.quantity}</td>
                 <td>{product.price}</td>
                 <td>{product.active}</td>
                 <td>
