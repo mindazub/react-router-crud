@@ -5,27 +5,35 @@ class ProductsPreview extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
       products: JSON.parse(localStorage.getItem("products"))
 
     };
-  }
+  // }
 
-  commponentWillMount() {
+  // commponentDidMount() {
 
-    let productFound = this.state.products.filter(
-      product => (product.id = this.props.match.params.id)
-    )[0];
+  // //   // let productSelected = this.props.products.filter(
+  // //   //   product => (product.id = this.props.match.params.id)
+  // //   // )[0];
 
-    this.state.productFound = productFound;
+  // //   // this.state.productSelected = productSelected;
+
+
 
   }
 
   render() {
-    let productFound = this.state.products.filter(
-      product => (product.id = this.props.match.params.id)
-    )[0];
 
+    let productSelected = this.props.products.find(
+      product => (product.id = this.props.match.params.id)
+    );
+    
+    console.log("Preview Propsai: " + this.props);
+    console.log("Preview Type of selected id: " + typeof(this.props.match.params.id));
+    console.log("Preview Product selected: " + productSelected.name);  
+    
     return (
       <div className="app-wrapper">
         <h1>PRODUCT PREVIEW</h1>
@@ -38,30 +46,30 @@ class ProductsPreview extends React.Component {
               Product details
             </a>
             <p>
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
-                    <th>{productFound.name}</th>
+                    <th>{productSelected.name}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{productFound.ean}</td>
+                    <td>{productSelected.ean}</td>
                   </tr>
                   <tr>
-                    <td>{productFound.type}</td>
+                    <td>{productSelected.type}</td>
                   </tr>
                   <tr>
-                    <td>{productFound.color}</td>
+                    <td>{productSelected.color}</td>
                   </tr>
                   <tr>
-                    <td>{productFound.quantity}</td>
+                    <td>{productSelected.quantity}</td>
                   </tr>
                   <tr>
-                    <td>{productFound.price}</td>
+                    <td>{productSelected.price}</td>
                   </tr>
                   <tr>
-                    <td>{productFound.active}</td>
+                    <td>{productSelected.active}</td>
                   </tr>
                 </tbody>
               </table>

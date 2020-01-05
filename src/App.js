@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 let products = [{
+
   name: 'iPad',
   ean: 5,
   type: 'tablet',
@@ -20,6 +21,7 @@ let products = [{
   price: 200
 },
 {
+
   name: 'iPhone',
   ean: 3,
   type: 'phone',
@@ -30,6 +32,7 @@ let products = [{
   price: 650
 },
 {
+
   name: 'macbook',
   ean: 3,
   type: 'laptop',
@@ -41,13 +44,29 @@ let products = [{
 }
 ];
 
+let selectedProduct = {};
 
 // let products = [];
 localStorage.setItem('products', JSON.stringify(products));
+localStorage.setItem('selectedProduct', selectedProduct);
+
+
 
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      products: JSON.parse(localStorage.getItem("products")),
+      selectedProduct: localStorage.getItem("selectedProduct"),
+
+    };
+
+    console.log('App constructor - products: ' + products);
+    console.log('App constructor - productSelected: ' + selectedProduct);
+  }
 
   render() {
     return (
@@ -59,10 +78,12 @@ class App extends React.Component {
               <Route exact path="/" component={Home}  />
               <Route exact path="/about" component={About} />
               <Route exact  path="/products/create/" component={ProductsCreate} />} />
-              <Route exact  path="/products" component={Products} />
-              <Route exact  path="/products/:id" render={(props) => <ProductsPreview {...props} />} />
-              <Route exact  path="/products/:id/edit/" render={(props) => <ProductsEdit {...props}/>} />
-
+              <Route exact  path="/products" render={(props) => <Products {...props} products={products} selectedProduct={selectedProduct}/>} />
+              <Route exact  path="/products/:id" render={(props) => <ProductsPreview {...props} products={products} selectedProduct={selectedProduct}/>} />
+              <Route exact  path="/products/:id/edit/" render={(props) => <ProductsEdit {...props} products={products} selectedProduct={selectedProduct}/>} />
+              <Route render={
+                () => <h3>Not found</h3>
+              } />
             </Switch>
           </div>
         </Router>

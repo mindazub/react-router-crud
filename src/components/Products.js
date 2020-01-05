@@ -9,7 +9,8 @@ class Products extends React.Component {
     super(props);
 
     this.state = {
-      products: JSON.parse(localStorage.getItem("products"))
+      products: JSON.parse(localStorage.getItem("products")),
+      productSelected: ''
     };
   }
 
