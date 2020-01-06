@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 import { Form, Row, Col, Button } from "react-bootstrap";
 
@@ -83,7 +84,7 @@ class ProductsCreate extends React.Component {
     existingProducts.push(product);
     localStorage.setItem("products", JSON.stringify(existingProducts));
 
-    this.props.history.push('/products');
+    this.props.history.push("/products");
   }
 
   render() {
@@ -202,6 +203,15 @@ class ProductsCreate extends React.Component {
             </Col>
           </Form.Group>
         </Form>
+        <Form.Group as={Row}>
+          <Col sm={{ span: 10, offset: 2 }}>
+            <Link to="/products">
+              <button type="button" class="btn btn-success">
+                Back
+              </button>
+            </Link>
+          </Col>
+        </Form.Group>
       </div>
     );
   }
