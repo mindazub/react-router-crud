@@ -10,27 +10,33 @@ class ProductsPreview extends React.Component {
       products: JSON.parse(localStorage.getItem("products"))
 
     };
-  // }
-
-  // commponentDidMount() {
-
-  // //   // let productSelected = this.props.products.filter(
-  // //   //   product => (product.id = this.props.match.params.id)
-  // //   // )[0];
-
-  // //   // this.state.productSelected = productSelected;
-
-
-
   }
 
-  render() {
+    componentDidMount() {
 
-    let productSelected = this.props.products.find(
-      product => (product.id = this.props.match.params.id)
+    let prod_id = parseInt(this.props.match.params.id);
+
+    let productSelected = this.state.products.find(
+      product => product.id === prod_id
     );
+
+    this.setState({productSelected: productSelected});
+
+    console.log("Did mount Product Selected: -> " + productSelected.name);
+}
+
+  render() {
+    let prod_id = parseInt(this.props.match.params.id);
+
+    let productSelected = this.props.products.filter(
+      product => product.id = prod_id
+    )[0];
     
-    console.log("Preview Propsai: " + this.props);
+    // this.setState({productSelected: productSelected});
+
+    console.log("Product Selected in render: -> " + productSelected.name);
+
+    // console.log("Preview Propsai: " + this.props);
     console.log("Preview Type of selected id: " + typeof(this.props.match.params.id));
     console.log("Preview Product selected: " + productSelected.name);  
     
