@@ -1,4 +1,7 @@
-                <h1>Shop Comp</h1>
+<Route exact path="/products/:id" render={(props) => <ProductsPreview {...props} products={products} selectedProduct={selectedProduct}/>} />              
+<Route path="/products/:product_id" component={ProductsShow} />}
+               
+               <h1>Shop Comp</h1>
                     <table>
                     <tr>
                         <th>Name</th>

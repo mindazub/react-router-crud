@@ -68,6 +68,7 @@ class ProductsCreate extends React.Component {
     let products = JSON.parse(localStorage.getItem("products"));
 
     let product = {
+      // id: this.state.id,
       name: this.state.name,
       ean: this.state.ean,
       type: this.state.type,

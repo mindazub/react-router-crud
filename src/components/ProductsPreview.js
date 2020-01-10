@@ -5,7 +5,6 @@ class ProductsPreview extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       products: JSON.parse(localStorage.getItem("products"))
 
@@ -22,7 +21,10 @@ class ProductsPreview extends React.Component {
 
     this.setState({productSelected: productSelected});
 
-    console.log("Did mount Product Selected: -> " + productSelected.name);
+    console.log("Did mount Product Name Selected: -> " + productSelected.name);
+    console.log("Did mount Product Weight Selected: -> " + productSelected.weight);
+    console.log("Did mount Product Color Selected: -> " + productSelected.color);   
+
 }
 
   render() {
@@ -36,9 +38,6 @@ class ProductsPreview extends React.Component {
 
     console.log("Product Selected in render: -> " + productSelected.name);
 
-    // console.log("Preview Propsai: " + this.props);
-    console.log("Preview Type of selected id: " + typeof(this.props.match.params.id));
-    console.log("Preview Product selected: " + productSelected.name);  
     
     return (
       <div className="app-wrapper">
