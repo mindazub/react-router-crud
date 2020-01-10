@@ -14,6 +14,8 @@ const ProductsShow = (props) => {
       <h1>Product Show By Id: </h1>
       <p>The ID is: {props.match.params.product_id}</p>
 
+  <p>The name of the product: { props.products[1].name }</p>
+
       <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
             <Link to="/products">
