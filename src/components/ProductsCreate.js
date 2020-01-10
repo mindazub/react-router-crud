@@ -16,7 +16,13 @@ class ProductsCreate extends React.Component {
     this.onChangeProductActive = this.onChangeProductActive.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
+    var uniqid = require('uniqid');
+
+    // sukurti ID su uniqid.
+
+
     this.state = {
+      id: uniqid(),
       name: "",
       ean: "",
       type: "",
@@ -27,6 +33,8 @@ class ProductsCreate extends React.Component {
       active: ""
     };
   }
+
+
 
   onChangeProductName(e) {
     this.setState({ name: e.target.value });
@@ -64,11 +72,14 @@ class ProductsCreate extends React.Component {
     e.preventDefault();
     console.log(`Product successfully created!`);
     console.log(`Name: ${this.state.name}`);
+    console.log(`ID: ${this.state.id}`);
 
     let products = JSON.parse(localStorage.getItem("products"));
 
+    let idString = toString(this.state.id);
+
     let product = {
-      // id: this.state.id,
+      id: idString,
       name: this.state.name,
       ean: this.state.ean,
       type: this.state.type,

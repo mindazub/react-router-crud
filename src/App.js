@@ -15,8 +15,11 @@ import {
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+var uniqid = require('uniqid');
+
 let products = [
   {
+    id: uniqid(),
     name: "iPad",
     ean: 5,
     type: "tablet",
@@ -27,6 +30,7 @@ let products = [
     price: 200
   },
   {
+    id: uniqid(),
     name: "iPhone",
     ean: 3,
     type: "phone",
@@ -37,6 +41,7 @@ let products = [
     price: 650
   },
   {
+    id: uniqid(),
     name: "macbook",
     ean: 3,
     type: "laptop",
@@ -103,7 +108,7 @@ class App extends React.Component {
               />
               <Route
                 exact
-                path="/products/:id/edit/"
+                path="/products/:product_id/edit/"
                 render={props => (
                   <ProductsEdit
                     {...props}
