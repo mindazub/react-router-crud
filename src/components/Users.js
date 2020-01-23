@@ -12,19 +12,22 @@ class Users extends Component {
 
     makeUsYounger = () => {
         console.log("get younger, people!");
+
+
+        const newState = this.state.users.map((user)=> {
+            const tempUser = user;
+            tempUser.age -= 10;
+            return tempUser;
+        });
+
         this.setState({
-            users: [
-                { name: "John", age: 10 },
-                { name: "Jill", age: 20 },
-                { name: "Peter", age: 30 },
-            ]
-        })
-        console.log(this.state.users)
+            newState
+        });
     }
 
     render() {
         return (<div>
-            <button onClick={this,this.makeUsYounger}>Make Us Younger By 10 Years</button>
+            <button onClick={this, this.makeUsYounger}>Make Us Younger By 10 Years</button>
             <h1>{this.state.title}</h1>
             <User age={this.state.users[0].age}>{this.state.users[0].name}</User>
             <User age={this.state.users[1].age}>{this.state.users[1].name}</User>
