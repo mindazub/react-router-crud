@@ -76,10 +76,14 @@ class ProductsCreate extends React.Component {
 
     let products = JSON.parse(localStorage.getItem("products"));
 
-    let idString = toString(this.state.id);
+    // let idString = toString(this.state.id);
+
+    var uniqid = require('uniqid');
+    var product_id = uniqid();
+    this.setState({id: product_id});
 
     let product = {
-      id: idString,
+      id: this.state.id,
       name: this.state.name,
       ean: this.state.ean,
       type: this.state.type,

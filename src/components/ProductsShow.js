@@ -7,7 +7,7 @@ const ProductsShow = (props) => {
 
   console.log("Show props: " + util.inspect(props, false, null, true));
 
-  let prod_id = parseInt(props.match.params.product_id);
+  let prod_id = parseInt(this.props.match.params.id);
   console.log("Show prod_id type: " + typeof(prod_id));
   console.log("Show prod_id value: " + prod_id);
   // let prod_id = parseInt(this.props.match.params.id);

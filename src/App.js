@@ -104,11 +104,11 @@ class App extends React.Component {
                 )}
               />
 
-              <Route exact path="/products/:product_id" render={(props) => <ProductsShow {...props} products={products} selectedProduct={selectedProduct}/>} />
+              <Route exact path="/products/:id" render={(props) => <ProductsShow {...props} products={products} selectedProduct={selectedProduct} />} />
               />
               <Route
                 exact
-                path="/products/:product_id/edit/"
+                path="/products/:id/edit/"
                 render={props => (
                   <ProductsEdit
                     {...props}
