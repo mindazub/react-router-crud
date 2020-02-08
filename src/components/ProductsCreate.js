@@ -100,6 +100,10 @@ class ProductsCreate extends React.Component {
     existingProducts.push(product);
     localStorage.setItem("products", JSON.stringify(existingProducts));
 
+    this.state = {
+      products: JSON.parse(localStorage.getItem("products"))
+    };
+
     this.props.history.push("/products");
   }
 

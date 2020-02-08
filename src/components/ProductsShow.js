@@ -7,7 +7,7 @@ const ProductsShow = (props) => {
 
   console.log("Show props: " + util.inspect(props, false, null, true));
 
-  let prod_id = parseInt(this.props.match.params.id);
+  let prod_id = props.match.params.id;
   console.log("Show prod_id type: " + typeof(prod_id));
   console.log("Show prod_id value: " + prod_id);
   // let prod_id = parseInt(this.props.match.params.id);
@@ -24,7 +24,7 @@ const ProductsShow = (props) => {
   return (
     <div>
       <h1>Product Show By Id: </h1>
-      <p>The ID is: {props.match.params.product_id}</p>
+      <p>The ID is: {props.match.params.id}</p>
 
       <p>The name of the product: { productSelected.name }</p>
       <p>The ean of the product: { productSelected.ean }</p>

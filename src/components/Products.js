@@ -53,19 +53,19 @@ class Products extends React.Component {
                 <td>
                   <Link
                     className="btn btn-sm btn-primary"
-                    to={`/products/${index + 1}`}
+                    to={`/products/${product.id}`}
                   >
                     View
                   </Link>
                   <Link
                     className="btn btn-sm btn-info"
-                    to={`/products/${index + 1}/edit`}
+                    to={`/products/${product.id}/edit`}
                   >
                     Edit
                   </Link>
                   <Link
                     className="btn btn-sm btn-danger"
-                    to={`/products/${index + 1}`}
+                    to={`/products/${product.id}`}
                   >
                     Delete
                   </Link>
