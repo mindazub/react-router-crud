@@ -14,6 +14,11 @@ class Products extends React.Component {
     };
   }
 
+  delProduct = product => {
+    const productWithout = this.state.products.filter(prod => prod.id !== product.id)
+    this.setState({ products: productWithout })
+  };
+
   render() {
     return (
       <div class="app-wrapper">
@@ -30,7 +35,7 @@ class Products extends React.Component {
               <th scope="col">Name</th>
               <th scope="col">EAN</th>
               <th scope="col">Type</th>
-              <th scope="col">Color</th>              
+              <th scope="col">Color</th>
               <th scope="col">Quantity</th>
               <th scope="col">Price</th>
               <th scope="col">Active</th>
@@ -44,7 +49,7 @@ class Products extends React.Component {
                   {index + 1}
                 </th>
                 <td>{product.name}</td>
-                <td>{product.ean}</td> 
+                <td>{product.ean}</td>
                 <td>{product.type}</td>
                 <td>{product.color}</td>
                 <td>{product.quantity}</td>
@@ -65,9 +70,11 @@ class Products extends React.Component {
                   </Link>
                   <Link
                     className="btn btn-sm btn-danger"
-                    to={`/products/${product.id}`}
+                    // to={`/products/${product.id}`}
+                    onClick={this.delProduct.bind(this, product)}
                   >
                     Delete
+
                   </Link>
                 </td>
               </tr>
