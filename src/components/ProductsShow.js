@@ -12,7 +12,10 @@ const ProductsShow = (props) => {
   console.log("Show prod_id value: " + prod_id);
   // let prod_id = parseInt(this.props.match.params.id);
 
-  let productSelected = props.products.filter(
+  let productsFromLocalStorage = JSON.parse(localStorage.getItem("products"));
+
+
+  let productSelected = productsFromLocalStorage.filter(
     product => product.id === prod_id
   )[0];
 
