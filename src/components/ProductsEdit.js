@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import ProductsPreview from "./ProductsPreview";
 
 class ProductsEdit extends React.Component {
   constructor(props) {
@@ -16,10 +17,23 @@ class ProductsEdit extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      products: JSON.parse(localStorage.getItem("products"))
+      products: JSON.parse(localStorage.getItem("products")),
+      productSelected: ''
     }
 
-    // this.state.name = this.products.name;
+    let prod_id = props.match.params.id;
+
+    console.log("Product ID in Edit: " + prod_id);
+
+    let productSelected = this.state.products.filter(
+      product => product.id === prod_id
+    )[0];
+
+      this.setState = {
+        productSelected: productSelected
+      }
+
+      console.log("productSelected NAME is " + this.state.productSelected.name);
 
   }
 
@@ -58,16 +72,16 @@ class ProductsEdit extends React.Component {
   onSubmit(e) {
     e.preventDefault();
 
-    let product = {
-      name: this.state.name,
-      ean: this.state.ean,
-      type: this.state.type,
-      weight: this.state.weight,
-      color: this.state.color,
-      quantity: this.state.quantity,
-      price: this.state.price,
-      active: this.state.active
-    };
+    // let product = {
+    //   name: productSelected.name,
+    //   ean: productSelected.ean,
+    //   type: productSelected.type,
+    //   weight: productSelected.weight,
+    //   color: productSelected.color,
+    //   quantity: productSelected.quantity,
+    //   price: productSelected.price,
+    //   active: productSelected.active
+    // };
     // Updating a product 
     // Find product by id
     // Update it
@@ -83,6 +97,11 @@ class ProductsEdit extends React.Component {
 
 
   render() {
+
+    let productSelectedRender = this.state.productSelected;
+
+    console.log(" productSelected in RENDER " + productSelectedRender);
+
     return (
       <div className="col-md-12 app-wrapper">
         <h1>Products Edit</h1>
@@ -95,7 +114,7 @@ class ProductsEdit extends React.Component {
             <Col sm={10}>
               <Form.Control
                 type="text"
-                value={this.state.name}
+                value={productSelectedRender.name}
                 onChange={this.onChangeProductName}
                 placeholder="Name"
               />
@@ -109,7 +128,7 @@ class ProductsEdit extends React.Component {
             <Col sm={10}>
               <Form.Control
                 type="number"
-                value={this.state.Ean}
+                value={productSelectedRender.Ean}
                 onChange={this.onChangeProductEan}
                 placeholder="EAN"
               />
@@ -194,7 +213,7 @@ class ProductsEdit extends React.Component {
 
           <Form.Group as={Row}>
             <Col sm={{ span: 10, offset: 2 }}>
-              <Button type="submit">Add a Product</Button>
+              <Button type="submit">Update a Product</Button>
             </Col>
           </Form.Group>
         </Form>

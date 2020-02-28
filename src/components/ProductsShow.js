@@ -3,14 +3,9 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ProductsShow = (props) => {
-  const util = require("util");
-
-  console.log("Show props: " + util.inspect(props, false, null, true));
 
   let prod_id = props.match.params.id;
-  console.log("Show prod_id type: " + typeof(prod_id));
-  console.log("Show prod_id value: " + prod_id);
-  // let prod_id = parseInt(this.props.match.params.id);
+
 
   let productsFromLocalStorage = JSON.parse(localStorage.getItem("products"));
 
